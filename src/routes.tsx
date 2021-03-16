@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { useStore } from "effector-react";
-import { $token } from "./stores/auth";
+import $token from "./domains/auth/stores/token";
 import SignIn from "./pages/auth/Signin";
 import IndexPage from "./pages";
 

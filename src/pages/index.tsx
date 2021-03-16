@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Client from "fhirclient/lib/Client";
 import { useStore } from "effector-react";
 import { FHIRClientProvider } from "../context/FhirClient";
 import Header from "../components/Header";
 import Home from "./home/Home";
-import { $client, $user } from "../stores/auth";
+import $client from "../domains/auth/stores/client";
+import $user from "../domains/auth/stores/user";
 
 const IndexPage: React.FC = () => {
   const { loading, data: user, fhir } = useStore($user);

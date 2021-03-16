@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import TextInput from "../../components/Input";
 import classes from "./auth.module.css";
 import Button from "../../components/Button";
-import { signInFx } from "../../stores/auth";
+import { signInFx } from "../../domains/auth/effect";
 
 interface IForm {
   username: string;
