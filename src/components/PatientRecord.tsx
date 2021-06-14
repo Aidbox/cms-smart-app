@@ -30,11 +30,14 @@ const PatientRecord: FC = () => {
   return (
     <>
       <Grid container>
+      {patient ? (
         <Grid.Column tablet={4} largeScreen={4} widescreen={4} mobile={16}>
           {patient && (
-            <PatientBadge patient={patient} />
+            <PatientBadge patient={patient}/>
           )}
-        </Grid.Column>
+        </Grid.Column>) :
+      <Grid.Column tablet={4} largeScreen={4} widescreen={4} mobile={16} />
+        }
 
         <Grid.Column tablet={12} largeScreen={12} widescreen={12} mobile={16}>
           {!client && (
@@ -48,7 +51,7 @@ const PatientRecord: FC = () => {
               </div>
             </div>
           )}
-          {patient?.id && <ExplanationOfBenefits patientId={patient.id} />}
+          {client?.patient?.id && <ExplanationOfBenefits patientId={client.patient.id} />}
         </Grid.Column>
       </Grid>
     </>
