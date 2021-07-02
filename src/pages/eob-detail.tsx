@@ -237,7 +237,7 @@ const EobDetail: FC = () => {
     store: $eob,
     keys: [params.id],
     fn: (items, [itemId]) =>
-      items.data.find(({ id }: { id: string }) => id === itemId),
+      items.find(({ id }: { id: string }) => id === itemId),
   });
   const [current, setCurrent] = useState<number>(-1);
 

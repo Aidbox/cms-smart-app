@@ -1,23 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { fhirclient } from "fhirclient/lib/types";
 import { useNavigate } from "react-router-dom";
 import { Header, Table } from "semantic-ui-react";
 import { useStore } from "effector-react";
 import classes from "./index.module.css";
 import { Button } from "../ui";
-import { $eob, fetchEobFx } from "../../stores/patient";
-import { $client } from "../../stores/auth";
+import { $eob, fetchEobFx, loadEob } from "../../stores/patient";
 
-const ExplanationOfBenefit: React.FC<{
-  patientId: string;
-}> = ({ patientId }) => {
-  const client = useStore($client);
-  const { loading, data: items } = useStore($eob);
+const ExplanationOfBenefit: React.FC = () => {
+  const loading = useStore(fetchEobFx.pending);
+  const items = useStore($eob);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (loading) fetchEobFx({ client, patient: patientId });
-  }, [client, loading, patientId]);
 
   return (
     <>
@@ -25,7 +18,7 @@ const ExplanationOfBenefit: React.FC<{
         <Header as="h2">Claims</Header>
         <Button
           title={loading ? "Loading..." : "Reload"}
-          onClick={() => fetchEobFx({ client, patient: patientId })}
+          onClick={() => loadEob()}
         />
       </div>
 

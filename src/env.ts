@@ -1,6 +1,5 @@
 const data: Record<string, string> = {
   URL: "",
-  LOGIN: "",
   CLIENT: "",
   SCOPE: "",
 };
